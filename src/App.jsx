@@ -2,14 +2,30 @@ import React from "react";
 import { useRef } from "react";
 
 const App = () => {
-  let myHeadLine = useRef();
-  let change = () => {
-    myHeadLine.innerHTML = "<ul><li>iooooooooo</li></ul>";
+  let firstName,
+    lastName = useRef();
+
+  const changeName = () => {
+    const changeFirstName = firstName.value;
+    const changeLasttName = lastName.value;
+    alert(changeFirstName + " " + changeLasttName);
   };
+
   return (
     <div>
-      <h1 ref={(h1) => (myHeadLine = h1)}></h1>
-      <button onClick={change}>Click</button>
+      <input
+        ref={(firstname) => (firstName = firstname)}
+        type="text"
+        placeholder="First Name"
+      />{" "}
+      <br />
+      <input
+        ref={(lastname) => (lastName = lastname)}
+        type="any"
+        placeholder="Last Name"
+      />{" "}
+      <br />
+      <button onClick={changeName}>Click</button>
     </div>
   );
 };
