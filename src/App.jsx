@@ -2,16 +2,24 @@ import React, { useRef } from "react";
 
 const App = () => {
   let APIData = useRef(null);
-  const fatching = ()=>{
-    let response = fetch("https://dummyjson.com/products")
-    APIData.current =  response.json() 
-  }
- 
-
+  let dataShow = useRef();
+  const fatching = async () => {
+    const response = await fetch("https://dummyjson.com/products");
+    APIData.current = await response.json();
+  };
+  const showData = () => {
+    dataShow.current.innerText = JSON.stringify(APIData.current);
+  };
   return (
     <div>
-      <button ref={}>Call API</button>
-      <button ref={}>Show Data</button>
+      <p ref={dataShow}></p>
+      <button className="border p-2" ref={fatching}>
+        Call API
+      </button>{" "}
+      <br />
+      <button className="border p-2" ref={showData}>
+        Show Data
+      </button>
     </div>
   );
 };
