@@ -1,17 +1,17 @@
-import React from "react";
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 const App = () => {
-  let number = useRef(0);
-  const changeNumber = () => {
-    number.current++;
-    console.log(number.current);
-  };
+  let APIData = useRef(null);
+  const fatching = ()=>{
+    let response = fetch("https://dummyjson.com/products")
+    APIData.current =  response.json() 
+  }
+ 
+
   return (
-    <div className="m-20">
-      <button onClick={changeNumber} className="border p-2 bg-black text-white">
-        Click That
-      </button>
+    <div>
+      <button ref={}>Call API</button>
+      <button ref={}>Show Data</button>
     </div>
   );
 };
