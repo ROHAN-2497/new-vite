@@ -1,24 +1,15 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 
 const App = () => {
-  let APIData = useRef(null);
-  let dataShow = useRef();
-  const fatching = async () => {
-    const response = await fetch("https://dummyjson.com/products");
-    APIData.current = await response.json();
-  };
-  const showData = () => {
-    dataShow.current.innerText = JSON.stringify(APIData.current);
+  let [number, setNumber] = useState(0);
+  const increaceNumber = () => {
+    setNumber(number + 1);
   };
   return (
     <div>
-      <p ref={dataShow}></p>
-      <button className="border p-2" ref={fatching}>
-        Call API
-      </button>{" "}
-      <br />
-      <button className="border p-2" ref={showData}>
-        Show Data
+      <h1>Number : {number}</h1>
+      <button onClick={increaceNumber} className="px-2 bg-black text-white">
+        Increace Number
       </button>
     </div>
   );
