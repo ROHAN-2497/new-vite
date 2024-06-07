@@ -9,7 +9,7 @@ const App = () => {
     setList([...list]);
   };
 
-  const removeItem = () => {
+  const removeItem = (index) => {
     list.splice(index, 1);
     setList([...list]);
   };
