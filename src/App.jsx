@@ -3,24 +3,20 @@ import { useState } from "react";
 
 const App = () => {
   let [list, setList] = useState([]);
-  let [item, setItem] = useState("");
-  const addList = () => {
-    list.push(item);
-    setList([...list]);
-  };
-
+  let [item, setitem] = useState(0);
+  const change
   return (
-    <div className="">
-      <p>{list.length}</p>
+    <div>
+      <table>
+        <tbody></tbody>
+      </table>{" "}
       <input
-        className="bg-black text-white"
-        placeholder=""
-        onChange={(e) => setItem(e.target.value)}
+        onChange={(e) => setitem(e.target.value)}
         type="text"
+        name=""
+        id=""
       />
-      <button className="border-2 px-2 bg-amber-400" onClick={addList}>
-        Add
-      </button>
+      <button onClick={}>Click</button>
     </div>
   );
 };
